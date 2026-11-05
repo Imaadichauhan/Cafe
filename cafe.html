@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe</title>
+    <STYLE>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-image: url("cafe1.jpg");
+            background-size: cover;
+            
+        }
+        h1{
+            font-size: 70px;
+            text-align: center;
+            color: white;
+            margin: 20px;
+            font-family: Script MT Bold;
+        }
+        #Menu{
+            width: 350px;
+            height: 300px;
+            background-color: aliceblue;
+            text-align: center;
+            padding: 20px;
+            margin: 30px;
+            margin-left: 100px;
+            margin-top: 100px;
+            color: white;
+            background-color: black;
+        }
+        h2{
+            font-size: 40px;
+        }
+        h3{
+            font-size: 20px;
+            margin: 10px;
+            text-align: justify;
+        }
+        #bill{
+            width: 350px;
+            height: 300px;
+            background-color: aliceblue;
+            text-align: center;
+            padding: 20px;
+            margin: 30px;
+            margin-left: 700px;
+            margin-top: -370px;
+            color: white;
+            background-color: black;
+        }
+        input{
+            width: 270px;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            padding: 20px;
+            outline: none;
+            margin-top: 30px;
+        }
+        #btn{
+            width: 100px;
+            height: 40px;
+            margin-top: 30px;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
+        #result{
+            width: 150px;
+            height: 40px;
+            margin-top: 30px;
+            color: black;
+            background-color: white;
+            margin-left: 100px;
+            font-weight: bold;
+        }
+        #place{
+            width: 200px;
+            height: 40px;
+            margin-top: 30px;
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
+        #place:hover{
+            transform: scale(1.1);
+        }
+        button{
+            cursor: pointer;
+        }
+    </STYLE>
+</head>
+<body>
+    <h1>CAFE MANAGEMENT SYSTEM</h1>
+    <div id="Menu">
+        <h2>Our Menu</h2><br>
+        <h3>Pizza  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;199/-</h3>
+        <h3>Burger &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; 99/-</h3>
+        <h3>Cold-drink &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; 49/-</h3>
+        <h3>Coffee &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;299/-</h3>
+        <h3>Sandwitch &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;95/-</h3>
+        <h3>Momos &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;100/-</h3>
+        <h3>French Fries &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;99/-</h3>
+    </div>
+        <div id="bill">
+        <input id="search" type="search" placeholder="Order please">
+        <button id="btn" onclick="search()">Search</button>
+        <div id="result"></div>
+        <button id="place">Place order!!</button>
+    </div>
+
+  <script>
+    
+    var menu = {
+      "pizza": "199/-",
+      "burger": "99/-",
+      "cold-drink": "49/-",
+      "coffee": "299/-",
+      "sandwich": "95/-",
+      "momos": "100/-",
+      "french fries": "99/-"
+    };
+
+    function search() {
+      var input = document.getElementById("search").value.trim().toLowerCase();
+      var resultDiv = document.getElementById("result");
+
+      if (menu[input]) {
+        resultDiv.textContent = `Your order:  ${input}\nBill:  ${menu[input]}`;
+      } else {
+        resultDiv.textContent = `Item "${input}" not found.`;
+      }
+    }
+
+    const button = document.getElementById("place");
+    button.onclick = function() {
+    button.innerText = "Your order confirmed!";
+    button.style.backgroundColor = "green";
+    button.style.color = "white";
+  };
+    var red = document.getElementById("search");
+    var place = document.getElementById("place")
+    red.onclick = function() {
+    place.innerText = "Place order!!";
+    place.style.backgroundColor = "red"; 
+    place.style.color = "white";
+  };
+
+    </script>
+</body>
+</html>
